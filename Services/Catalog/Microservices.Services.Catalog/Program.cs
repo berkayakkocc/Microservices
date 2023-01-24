@@ -7,8 +7,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//1.kýsým Servis
+
 var app = builder.Build();
 
+//2.Middleware
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
