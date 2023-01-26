@@ -1,3 +1,4 @@
+using Microservices.Services.Catalog.Services;
 using Microservices.Services.Catalog.Settings;
 using Microsoft.Extensions.Options;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddAutoMapper(typeof(Program));
 IConfiguration _configuration = new ConfigurationBuilder()
                             .AddJsonFile("appsettings.json")
