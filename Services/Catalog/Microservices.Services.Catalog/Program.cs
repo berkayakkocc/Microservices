@@ -7,7 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+//Scoped
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+
+
+
 builder.Services.AddAutoMapper(typeof(Program));
 IConfiguration _configuration = new ConfigurationBuilder()
                             .AddJsonFile("appsettings.json")

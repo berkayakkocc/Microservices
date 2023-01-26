@@ -37,7 +37,7 @@ namespace Microservices.Services.Catalog.Services
         
         public async Task<Response<CategoryDto>> GetByIdAsync(string id)
         {
-            Task<Category> categoryById = _categoryCollection.Find<Category>(x => x.Id == id).FirstOrDefaultAsync();
+            Category  categoryById = await _categoryCollection.Find<Category>(x => x.Id == id).FirstOrDefaultAsync();
 
             if (categoryById==null)
             {
