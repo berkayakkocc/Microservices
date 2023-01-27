@@ -7,7 +7,7 @@ using MongoDB.Driver;
 
 namespace Microservices.Services.Catalog.Services
 {
-    internal class CategoryService: ICategoryService
+    public class CategoryService: ICategoryService
     {
         private readonly IMapper _mapper;
         private readonly IMongoCollection<Category> _categoryCollection;

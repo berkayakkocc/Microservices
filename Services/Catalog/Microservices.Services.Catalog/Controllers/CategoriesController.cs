@@ -8,15 +8,15 @@ namespace Microservices.Services.Catalog.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    internal class CategoriesController : CustomBaseController
+    public class CategoriesController : CustomBaseController
     {
-        private readonly ICategoryService _categoryService ;
+        private readonly ICategoryService _categoryService;
 
         public CategoriesController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
         }
-
+        [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var response = await _categoryService.GetAllAsync();
@@ -32,7 +32,7 @@ namespace Microservices.Services.Catalog.Controllers
             return CreateActionResultInstance(response);
         }
 
-       
+
         [HttpPost]
         public async Task<IActionResult> Create(CategoryDto categoryDto)
         {
@@ -40,6 +40,6 @@ namespace Microservices.Services.Catalog.Controllers
 
             return CreateActionResultInstance(response);
         }
-      
+
     }
 }

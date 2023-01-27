@@ -7,14 +7,14 @@ using MongoDB.Driver;
 
 namespace Microservices.Services.Catalog.Services
 {
-    internal class CourseService: ICourseService
+    public class CourseService: ICourseService
     {
         private readonly IMapper _mapper;
         private readonly IMongoCollection<Category> _categoryCollection;
         private readonly IMongoCollection<Course> _courseCollection;
         private readonly IDatabaseSettings _databaseSettings;
 
-        public CourseService(IMapper mapper, IMongoCollection<Category> categoryCollection, IMongoCollection<Course> courseCollection, IDatabaseSettings databaseSettings)
+        public CourseService(IMapper mapper, IDatabaseSettings databaseSettings)
         {
             MongoClient client = new MongoClient(databaseSettings.ConnectionString);
             IMongoDatabase database = client.GetDatabase(databaseSettings.ConnectionString);

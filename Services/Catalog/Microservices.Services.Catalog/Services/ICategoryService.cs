@@ -4,7 +4,7 @@ using Microservices.Shared.Dtos;
 
 namespace Microservices.Services.Catalog.Services
 {
-    internal interface ICategoryService
+    public interface ICategoryService
     {
         Task<Response<List<CategoryDto>>> GetAllAsync();
         Task<Response<CategoryDto>> CreateAsync(CategoryDto categoryDto);
